@@ -1,38 +1,356 @@
-.App {
+@import url('https://googleapis.com');
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;      /* Matches my Figma frame width */
+  margin: 0 auto;         /* Centers the container on the screen */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Pushes the logo to the left and links to the right */
+.navigation-bar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            /* Centers items vertically */
+  padding: 20px;
+}
+
+/* Turns the bulleted list into a horizontal row */
+.nav-links {
+  display: flex;
+  list-style: none;               /* Removes standard bullet points */
+  gap: 24px;                      /* Creates clean spacing between links */
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional styling for the link text */
+.nav-links a {
+  text-decoration: none;          /* Removes default underlines */
+  color: #333333;
+  font-weight: bold;
+}
+
+/* Full-width outer band for the navigation layout zone */
+.navigation-bar-wrapper {
+  width: 100% !important;
+  background-color: #ffffff !important;
+}
+
+/* Centered inner layout boundary matching your exact Hero layout width */
+.nav-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important; /* Locks text and logo onto a straight horizontal line */
+  max-width: 900px !important;    /* Forces content inward to line up with the hero block */
+  margin: 0 auto !important;     /* Centers the box on the screen */
+  padding: 20px 24px !important;  /* Balanced spacing around your elements */
+  box-sizing: border-box !important;
+}
+
+/* Clean up link list grouping horizontal row distribution */
+.nav-links {
+  display: flex !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 28px !important; /* Balanced gap between links */
+}
+
+/* Base text styles for nav links */
+.nav-links a {
+  text-decoration: none !important;
+  color: #333333 !important;
+  font-weight: bold !important;
+  font-size: 0.95rem !important;
+  font-family: 'Karla', sans-serif !important;
+}
+
+.nav-container {
+  display: flex !important;
+  justify-content: space-between !important; /* Forces layout items to push outwards to the edges */
+  align-items: center !important;
+  max-width: 950px !important;    /* Matches the exact horizontal bounds of the hero container */
+  margin: 0 auto !important;     /* Centers the bounded block on your screen */
+  padding: 15px 20px !important;  
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* 2. Style alignment for your logo layout wrapper */
+.nav-logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 3. Style alignment for your navigation links grid row */
+.nav-links {
+  display: flex !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 28px !important; /* Keeps an elegant gap distribution between each link item */
+}
+
+.nav-links a:hover {
+  text-decoration: underline !important;           /* Adds a subtle underline on hover for clarity */
+}
+
+.main-content {
+  padding: 40px 20px;
+}
+
+/* Header row for Specials (Title on left, Button on right) */
+.specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  font-family: 'markazi text', serif;
+}
+
+h4 {
+  font-family: 'markazi text', serif;
+}
+.menu-btn {
+  background-color: #F4CE14;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  background-color: #E4B914; /* Slightly darker yellow on hover */
+}
+
+/* 3-Column Layout for Specials using CSS Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 24px;                             /* Gutter spacing */
+  margin-bottom: 60px;
+}
+
+/* Individual Card Layout using Flexbox */
+.special-card {
+  background-color: #EDEFEE;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;                /* Stacks image, text, and link vertically */
+  overflow: hidden;
+}
+
+.card-image-placeholder {
+  height: 200px;
+  background-color: #CCCCCC;             /* Grey box placeholder for food graphic */
+}
+
+.card-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-info h4 {
+  display: flex;
+  justify-content: space-between;        /* Pushes food title left, price right */
+  margin: 0 0 12px 0;
+}
+
+.card-info p {
+  color: #495E57;
+  font-size: 14px;
+  flex-grow: 1;                          /* Pushes the delivery link down to align perfectly */
+  margin-bottom: 16px;
+}
+
+.card-info a {
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 4-Column Layout for Testimonials using CSS Grid */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 20px;
+}
+
+.testimonial-card {
+  background-color: #EDEFEE;
+  padding: 20px;
+  border-radius: 8px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.testimonials-section h3 {
+  font-family: 'markazi text', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hero-section {
+  display: flex;
+  justify-content: space-between; /* Pushes text left, image right */
+  align-items: center;            /* Aligns them cleanly in the middle vertically */
+  padding: 40px 20px;
+  background-color: #495E57;      /* Little Lemon's signature dark green banner background */
+  color: #EDEFEE;                 /* Light cream/white text color */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hero-content {
+  flex: 1;                        /* Allows the text side to grow naturally */
+  max-width: 50%;                 /* Keeps the text on the left half of the screen */
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  color: #F4CE14;                 /* Little Lemon's signature yellow color */
+  margin: 0;
+}
+
+.hero-content h2 {
+  font-size: 32px;
+  margin: 0 0 16px 0;
+}
+
+.reserve-btn {
+  background-color: #F4CE14;
+  color: #333333;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.reserve-btn:hover {
+  background-color: #E4B914; /* Slightly darker yellow on hover */
+}
+
+/* Stylized placeholder for the wireframe image on the right */
+.hero-image-box {
+  width: 350px;
+  height: 250px;
+  background-color: ;
+  border: 2px solid #495E57;
+  position: relative;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Keeps text aligned at the top */
+  max-width: 1000px;       /* Keeps elements close like the design */
+  margin: 0 auto;
+  padding: 40px 20px 20px 20px;
+  gap: 50px;               /* Adds breathing room between text and image */
+}
+
+/* Give the text side enough room to breathe so lines don't break awkwardly */
+.hero-content {
+  flex: 1;                 /* Allows text area to scale naturally */
+  max-width: 500px;        /* Prevents text from being too narrow or too wide */
+}
+
+/* Adjust typography margins slightly for precise spacing */
+.hero-content h1 {
+  color: #F4CE14;
+  font-size: 3.5rem;
+  margin: 0 0 5px 0;      /* Minimal gap to the subtitle */
+  font-family: "Markazi Text", serif;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 25px 0;      /* Clear gap before description paragraph */
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 35px;     /* Push the button down */
+}
+
+/* Force the image wrapper and image sizing rules to hold their shape */
+.hero-image-wrapper {
+  flex: 1;
+  max-width: 400px;        /* Limits total size of the image layout block */
+  position: relative;
+  margin-bottom: -70px;    /* Pulls image downward over the bottom edge */
+  z-index: 10;
+}
+
+.hero-img {
+  width: 100%;             /* Fills the wrapper completely */
+  height: 420px;           /* Gives it a taller portrait look like the image */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section-background {
+  background-color: #495E57 !important; /* The corporate dark green */
+  width: 100% !important;
+  padding: 40px 0 10px 0 !important;
+}
+
+.footer-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns across the row */
+  gap: 40px;                             /* Gutter spacing between columns */
+  padding: 60px 20px;
+  background-color: #495E57;
+  color: white;
+  border-top: 1px solid #CCCCCC;
+}
+
+/* Vertically stacks the items inside each column */
+.footer-section ul {
+  list-style: none;                      /* Removes bullet points */
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 12px;                             /* Spaces out the links vertically */
+}
+
+.footer-section h5 {
+  font-size: 16px;
+  color: #495E57;                        /* Dark green color for headings */
+  margin: 0 0 16px 0;
+  text-transform: uppercase;                      /* Makes the heading text all uppercase */
+  letter-spacing: 1px;
+  font-family: 'Karla', sans-serif;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-section a {
+  text-decoration: none;             /* Removes underlines from links */
+  color: white;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-section address {
+  font-style: normal;                    /* Straightens the default italicized address text */
+  color: white;
+}
+
+.footer-section a:hover {
+  font-weight: bold;           /* Adds a subtle underline on hover for clarity */
 }
