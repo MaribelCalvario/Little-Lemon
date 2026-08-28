@@ -188,11 +188,19 @@ h4 {
   gap: 20px;
 }
 
+.testimonials-section {
+  padding: 40px 20px;
+  background-color: #495E57; /* Little Lemon's signature yellow */
+  color: white;
+  text-align: center;
+}
+
 .testimonial-card {
   background-color: #EDEFEE;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
+  color: black;
 }
 
 .testimonials-section h3 {
@@ -246,7 +254,7 @@ h4 {
 .hero-image-box {
   width: 350px;
   height: 250px;
-  background-color: ;
+  background-color: white;
   border: 2px solid #495E57;
   position: relative;
 }
@@ -308,6 +316,117 @@ h4 {
   background-color: #495E57 !important; /* The corporate dark green */
   width: 100% !important;
   padding: 40px 0 10px 0 !important;
+}
+
+.aboutContainer {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Markazi Text', serif; /* Standard Meta Little Lemon font style */
+}
+
+.aboutContent {
+  flex: 1;
+  max-width: 500px;
+}
+
+.title {
+  font-size: 3.5rem;
+  color: #F4CE14; /* Little Lemon Primary Yellow */
+  margin: 0;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 2rem;
+  color: #495E57; /* Little Lemon Primary Green */
+  margin: 0 0 24px 0;
+  font-weight: 400;
+  font-family: 'Karla', sans-serif;
+}
+
+.description {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* Image stacking container */
+.imageGallery {
+  flex: 1;
+  position: relative;
+  height: 380px;
+  max-width: 500px;
+}
+
+.aboutImage {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Position for the bottom left chef picture */
+.imageBottom {
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Position for the overlapping top right chef picture */
+.imageTop {
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .aboutContainer {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+}
+  .aboutContent {
+    max-width: 100%;
+  }
+
+.imageGallery {
+  flex: 1;
+  position: relative;
+  height: 420px;
+  width: 480px;      /* Fixes the container width so images can space out */
+  max-width: 480px;
+}
+
+ .aboutImage {
+  position: absolute;
+  width: 270px;     /* Controlled dimensions so they don't cover each other */
+  height: 310px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+  .imageBottom {
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.imageTop {
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 .footer-section {

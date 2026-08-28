@@ -1,106 +1,79 @@
+import React, { useReducer, useState } from 'react'; 
+import { Routes, Route, useNavigate } from 'react-router-dom'; // 1. Imported useNavigate
 
-import React from 'react';
+import Header from './Header';
+import About from './About';
+import Specials from './Specials';         
+import Testimonials from './Testimonials'; 
+import BookingPage from './BookingPage'; 
+import ConfirmedBooking from './ConfirmedBooking'; 
+
+export function initializeTimes() {
+  const today = new Date();
+  return typeof window.fetchAPI === 'function' 
+    ? window.fetchAPI(today) 
+    : ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+}
+
+export function updateTimes(state, action) {
+  switch (action.type) {
+    case 'UPDATE_TIMES':
+      return typeof window.fetchAPI === 'function' 
+        ? window.fetchAPI(action.payload) 
+        : ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    default:
+      return state;
+  }
+}
 
 function Main() {
+  const [availableTimes, dispatch] = useReducer(updateTimes, null, initializeTimes);
+  
+  // 1. UPDATE INITIAL STATE: Load existing bookings from Local Storage on startup
+  const [bookingsList, setBookingsList] = useState(() => {
+    const savedBookings = localStorage.getItem('littleLemonBookings');
+    return savedBookings ? JSON.parse(savedBookings) : [];
+  });
+  
+  const navigate = useNavigate();
+
+  // 2. UPDATE HANDLER: Write the new array list directly into Local Storage memory
+  const addNewBooking = (newBooking) => {
+    setBookingsList((prevBookings) => {
+      const updatedBookings = [...prevBookings, newBooking];
+      localStorage.setItem('littleLemonBookings', JSON.stringify(updatedBookings));
+      return updatedBookings;
+    });
+  };
+
+  const submitForm = (formData) => {
+    const success = typeof window.submitAPI === 'function'
+      ? window.submitAPI(formData)
+      : true; 
+
+    if (success) {
+      addNewBooking(formData); 
+      navigate('/confirmed');  
+    }
+  };
+
   return (
     <main className="container main-content">
-      
-      {/* 1. SPECIALS SECTION */}
-      <div className="specials-section">
-        <div className="specials-header">
-          <h3>This week's specials!</h3>
-          <button className="menu-btn">Online Menu</button>
-        </div>
+      <Routes>
+        <Route path="/" element={<><Header /><Specials /><Testimonials /></>} />
+        <Route path="/about" element={<About />} />
         
-        {/* Grid Container for the 3 Cards */}
-        <div className="cards-grid">
-          
-          {/* Card 1 */}
-          <div className="special-card">
-            {/* UPDATED: Serving directly from public root */}
-            <img src="/greek-salad.jpg" alt="Greek Salad" className="card-img" />
-            <div className="card-info">
-              <h4>Greek salad <span>$12.99</span></h4>
-              <p>The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.</p>
-              <a href="#order">Order a delivery <span className="delivery-icon">🚚</span></a>
-            </div>
-          </div>
+        <Route path="/booking" element={
+          <BookingPage 
+            availableTimes={availableTimes} 
+            dispatch={dispatch} 
+            bookingData={bookingsList}
+            submitForm={submitForm} 
+          />
+        } />
 
-          {/* Card 2 */}
-          <div className="special-card">
-            {/* UPDATED: Serving directly from public root */}
-            <img src="/bruchetta.svg" alt="Bruchetta" className="card-img" />
-            <div className="card-info">
-              <h4>Bruchetta <span>$5.99</span></h4>
-              <p>Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.</p>
-              <a href="#order">Order a delivery <span className="delivery-icon">🚚</span></a>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="special-card">
-            {/* UPDATED: Serving directly from public root */}
-            <img src="/lemondessert.jpg" alt="Lemon Dessert" className="card-img" />
-            <div className="card-info">
-              <h4>Lemon Dessert <span>$5.00</span></h4>
-              <p>This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.</p>
-              <a href="#order">Order a delivery <span className="delivery-icon">🚚</span></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* 2. TESTIMONIALS SECTION */}
-      <div className="testimonials-section">
-        <h3>Testimonials</h3>
-        <div className="testimonials-grid">
-          <div className="testimonial-card">
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p>"Great food!"</p>
-            <img src="/file.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p> - John Doe</p>
-          </div>
-
-           <div className="testimonial-card">
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p>"Great food!"</p>
-            <img src="/file1.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p> - Jane Miller</p>
-          </div>
-            
-           <div className="testimonial-card">
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p>"Great food!"</p>
-            <img src="/file3.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p> - Joanne Smith</p>
-          </div>
-          
-          <div className="testimonial-card">
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p>"Highly recommend!"</p>
-            <img src="/file4.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <p> - Joe Johnson</p>
-          </div>
-        </div>
-      </div>
-
+        <Route path="/confirmed" element={<ConfirmedBooking />} />
+      </Routes>
     </main>
   );
 }
