@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 
-// 1. Accept the submitForm prop (remove onAddBooking from parameters)
 function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
     const [date, setDate] = useState('');
-    const [time, setTime] = useState('17:00');
+    const [time, setTime] = useState('');
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('Birthday');
+
+    const today = new Date().toISOString().split('T')[0];
+
+    // Individual field validations for precise ARIA reporting
+    const isDateValid = date !== '' && date >= today;
+    const isTimeValid = time !== '';
+    const isGuestsValid = guests >= 1 && guests <= 10;
+    const isOccasionValid = occasion !== '';
+
+    const isFormValid = () => {
+        return isDateValid && isTimeValid && isGuestsValid && isOccasionValid;
+    };
 
     const handleDateChange = (e) => {
         const selectedDateStr = e.target.value;
@@ -14,12 +25,10 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
         dispatch({ type: 'UPDATE_TIMES', payload: dateObject });
     };
 
-    // 2. STEP 2 REQUIREMENT: Update the button submit event handler to call submitForm
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!isFormValid()) return;
         const formData = { date, time, guests, occasion };
-        
-        // Call the parent function passed via props
         submitForm(formData); 
     };
 
@@ -27,28 +36,63 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
             <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}>
                 <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" value={date} onChange={handleDateChange} required />
+                <input 
+                    type="date" 
+                    id="res-date" 
+                    value={date} 
+                    onChange={handleDateChange} 
+                    min={today} 
+                    required 
+                    aria-invalid={date !== '' && !isDateValid}
+                />
 
                 <label htmlFor="res-time">Choose time</label>
-                <select id="res-time" value={time} onChange={(e) => setTime(e.target.value)}>
+                <select 
+                    id="res-time" 
+                    value={time} 
+                    onChange={(e) => setTime(e.target.value)} 
+                    required
+                    aria-invalid={time !== '' && !isTimeValid}
+                >
+                    <option value="" disabled>--Select a time--</option>
                     {availableTimes.map((timeOption) => (
                         <option key={timeOption} value={timeOption}>{timeOption}</option>
                     ))}
                 </select>
 
                 <label htmlFor="guests">Number of guests</label>
-                <input type="number" placeholder="1" min="1" max="10" id="guests" value={guests} onChange={(e) => setGuests(Number(e.target.value))} required />
+                <input 
+                    type="number" 
+                    placeholder="1" 
+                    id="guests" 
+                    value={guests} 
+                    onChange={(e) => setGuests(Number(e.target.value))} 
+                    min="1" 
+                    max="10" 
+                    required 
+                    aria-invalid={!isGuestsValid}
+                />
 
                 <label htmlFor="occasion">Occasion</label>
-                <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+                <select id="occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)} required>
                     <option value="Birthday">Birthday</option>
                     <option value="Anniversary">Anniversary</option>
                 </select>
 
-                <button type="submit" aria-label="On Click confirm your reservation">Make Your Reservation</button>
+                <button 
+                    type="submit" 
+                    // FIXED: Replaced custom text with the exact literal string mandated by Coursera
+                    aria-label="On Click"
+                    disabled={!isFormValid()}
+                    style={{
+                        cursor: isFormValid() ? 'pointer' : 'not-allowed',
+                        opacity: isFormValid() ? 1 : 0.5
+                    }}
+                >
+                    Make Your Reservation
+                </button>
             </form>
 
-            {/* Historical data tracking table grid layout stays here */}
             {bookingData.length > 0 && (
                 <div style={{ marginTop: '20px' }}>
                     <h2>Current Bookings Queue</h2>

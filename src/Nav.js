@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'; // 1. Import the Link component
 function Nav () {
     return (
         // 1. Full-width outer band for the navigation area
-        <nav className="navigation-bar-wrapper">
+        <nav className="navigation-bar-wrapper" aria-label="Main Menu">
             
             {/* 2. Narrow inner container that matches the 900px hero width constraint */}
             <div className="nav-container">

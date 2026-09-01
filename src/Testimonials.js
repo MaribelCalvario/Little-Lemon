@@ -2,56 +2,89 @@ import React from 'react';
 
 function Testimonials() {
   return (
-    <div className="testimonials-section">
-      <h3>Testimonials</h3>
+    // 1. Upgraded container to <section>
+    <section className="testimonials-section" aria-labelledby="testimonials-title">
+      {/* 2. Fixed heading hierarchy to H2 */}
+      <h2 id="testimonials-title">Testimonials</h2>
       <div className="testimonials-grid">
         
-        <div className="testimonial-card">
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p>"Great food!"</p>
-          <img src="/file.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p> - John Doe</p>
-        </div>
-
-         <div className="testimonial-card">
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p>"Great food!"</p>
-          <img src="/file1.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p> - Jane Miller</p>
-        </div>
+        {/* Card 1: John Doe - Upgraded to <article> */}
+        <article className="testimonial-card">
+          {/* 3. Combined stars into one hidden container with an accessible visual label */}
+          <div className="star-rating" aria-label="5 out of 5 stars">
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />  
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+          </div>
           
-         <div className="testimonial-card">
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p>"Great food!"</p>
-          <img src="/file3.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p> - Joanne Smith</p>
-        </div>
+          {/* 4. Wrapped review text inside a semantic figure/blockquote box */}
+          <figure className="testimonial-content">
+            <blockquote>"Great food!"</blockquote>
+            <div className="author-info">
+              <img src="/file.jpg" alt="John Doe" className="testimonial-img" width="30" height="30" />
+              <figcaption> - John Doe</figcaption>
+            </div>
+          </figure>
+        </article>
+
+         {/* Card 2: Jane Miller */}
+         <article className="testimonial-card">
+          <div className="star-rating" aria-label="5 out of 5 stars">
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />  
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+          </div>
+          <figure className="testimonial-content">
+            <blockquote>"Great food!"</blockquote>
+            <div className="author-info">
+              <img src="/file1.jpg" alt="Jane Miller" className="testimonial-img" width="30" height="30" />
+              <figcaption> - Jane Miller</figcaption>
+            </div>
+          </figure>
+        </article>
+          
+         {/* Card 3: Joanne Smith */}
+         <article className="testimonial-card">
+          <div className="star-rating" aria-label="5 out of 5 stars">
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />  
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+          </div>
+          <figure className="testimonial-content">
+            <blockquote>"Great food!"</blockquote>
+            <div className="author-info">
+              <img src="/file3.jpg" alt="Joanne Smith" className="testimonial-img" width="30" height="30" />
+              <figcaption> - Joanne Smith</figcaption>
+            </div>
+          </figure>
+        </article>
         
-        <div className="testimonial-card">
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p>"Highly recommend!"</p>
-          <img src="/file4.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-          <p> - Joe Johnson</p>
-        </div>
+        {/* Card 4: Joe Johnson */}
+        <article className="testimonial-card">
+          <div className="star-rating" aria-label="5 out of 5 stars">
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />  
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+            <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
+          </div>
+          <figure className="testimonial-content">
+            <blockquote>"Highly recommend!"</blockquote>
+            <div className="author-info">
+              <img src="/file4.jpg" alt="Joe Johnson" className="testimonial-img" width="30" height="30" />
+              <figcaption> - Joe Johnson</figcaption>
+            </div>
+          </figure>
+        </article>
 
       </div>
-    </div>
+    </section>
   );
 }
 

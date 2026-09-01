@@ -1,10 +1,10 @@
 import React from 'react'; 
 import BookingForm from './BookingForm'; 
 
-// 1. Accept submitForm inside the brackets (remove onAddBooking since Main handles it now)
 function BookingPage({ availableTimes, dispatch, bookingData, submitForm }) {
     return (
-        <main style={{ padding: '40px', maxWidth: '600px', margin: '0 auto' }}>
+        // 1. Swapped <main> for <div> to avoid nested main landmark errors
+        <div style={{ padding: '40px', maxWidth: '600px', margin: '0 auto' }}>
             <h1>Reserve a Table at Little Lemon</h1>
             <p>Please fill out the form below to secure your seating.</p>
             
@@ -18,7 +18,7 @@ function BookingPage({ availableTimes, dispatch, bookingData, submitForm }) {
             />
             
             <p style={{ marginTop: '20px' }}>For parties larger than 10, please call our restaurant directly.</p>
-        </main>
+        </div>
     );
 }
 
