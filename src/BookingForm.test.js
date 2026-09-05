@@ -40,10 +40,9 @@ describe('BookingForm JavaScript Validation Function States', () => {
         expect(occasionSelect).toBeRequired();
     });
 
-    // --- UPDATED LOGIC TO SEARCH FOR THE "ON CLICK" ARIA ATTRIBUTE LANDMARK ---
+  
     test('Submit button should be disabled when form is empty or invalid', () => {
         render(<BookingForm {...defaultProps} />);
-        // 1. Updated to match the mandatory step 2 label requirement
         const submitButton = screen.getByRole('button', { name: /on click/i });
         expect(submitButton).toBeDisabled();
     });
@@ -52,7 +51,6 @@ describe('BookingForm JavaScript Validation Function States', () => {
         render(<BookingForm {...defaultProps} />);
         const dateInput = screen.getByLabelText(/choose date/i);
         const guestsInput = screen.getByLabelText(/number of guests/i);
-        // 2. Updated to match the mandatory step 2 label requirement
         const submitButton = screen.getByRole('button', { name: /on click/i });
 
         fireEvent.change(dateInput, { target: { value: '2026-12-25' } });
@@ -65,7 +63,6 @@ describe('BookingForm JavaScript Validation Function States', () => {
         render(<BookingForm {...defaultProps} />);
         const dateInput = screen.getByLabelText(/choose date/i);
         const guestsInput = screen.getByLabelText(/number of guests/i);
-        // 3. Updated to match the mandatory step 2 label requirement
         const submitButton = screen.getByRole('button', { name: /on click/i });
 
         fireEvent.change(dateInput, { target: { value: '2026-12-25' } });
@@ -80,7 +77,6 @@ describe('BookingForm JavaScript Validation Function States', () => {
         const dateInput = screen.getByLabelText(/choose date/i);
         const timeSelect = screen.getByLabelText(/choose time/i);
         const guestsInput = screen.getByLabelText(/number of guests/i);
-        // 4. Updated to match the mandatory step 2 label requirement
         const submitButton = screen.getByRole('button', { name: /on click/i });
 
         fireEvent.change(dateInput, { target: { value: '2026-12-25' } });

@@ -8,7 +8,7 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
 
     const today = new Date().toISOString().split('T')[0];
 
-    // Individual field validations for precise ARIA reporting
+    
     const isDateValid = date !== '' && date >= today;
     const isTimeValid = time !== '';
     const isGuestsValid = guests >= 1 && guests <= 10;
@@ -81,7 +81,6 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
 
                 <button 
                     type="submit" 
-                    // FIXED: Replaced custom text with the exact literal string mandated by Coursera
                     aria-label="On Click"
                     disabled={!isFormValid()}
                     style={{

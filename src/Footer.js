@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 function Footer () {
     const location = useLocation();
 
-    // Reusable handler that works for any path you pass to it
+    // Reusable handler
     const handleNavigationClick = (e, targetPath) => {
         if (location.pathname === targetPath) {
             e.preventDefault(); // Stop navigation if already on this page
@@ -13,10 +13,8 @@ function Footer () {
     };
 
     return (
-        /* We add our container class to align it with the 1440px grid layout */
         <footer className="container footer-section">
             <div className="footer-logo">
-                {/* Updated logo to use the new navigation handler */}
                 <Link to="/" onClick={(e) => handleNavigationClick(e, '/')} aria-label="Little Lemon Logo">
                     <img src="logo.png" alt="Little Lemon Logo" width="200" height="250" />
                 </Link>
@@ -25,7 +23,6 @@ function Footer () {
             <nav className="footer-nav">
                 <h5>Navigation</h5>
                 <ul>
-                        {/* Added click handlers to Home and About links */}
                         <li><Link to="/" onClick={(e) => handleNavigationClick(e, '/')}>Home</Link></li>
                         <li><Link to="/about" onClick={(e) => handleNavigationClick(e, '/about')}>About</Link></li>
                         <li><Link to="/menu">Menu</Link></li>

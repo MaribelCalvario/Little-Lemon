@@ -9,7 +9,7 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]); // This triggers automatically every time the URL path changes
 
-  return null; // This component doesn't need to render any HTML visual design
+  return null;
 }
 
 export default ScrollToTop;

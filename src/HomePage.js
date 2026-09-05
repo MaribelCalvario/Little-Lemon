@@ -4,10 +4,9 @@ import Header from './Header';
 function HomePage() {
   return (
     <>
-      {/* ADDED HEADER (HERO) COMPONENT HERE */}
       <Header />
 
-      {/* 1. SPECIALS SECTION */}
+      {/* SPECIALS SECTION */}
       <div className="specials-section">
         <div className="specials-header">
           <h3>This week's specials!</h3>
@@ -50,13 +49,13 @@ function HomePage() {
         </div>
       </div>
 
-      {/* 2. TESTIMONIALS SECTION */}
+      {/* TESTIMONIALS SECTION */}
       <div className="testimonials-section">
         <h3>Testimonials</h3>
         <div className="testimonials-grid">
           <div className="testimonial-card">
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
+            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
@@ -67,7 +66,7 @@ function HomePage() {
 
            <div className="testimonial-card">
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
+            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
@@ -78,7 +77,7 @@ function HomePage() {
             
            <div className="testimonial-card">
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
+            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
@@ -89,7 +88,7 @@ function HomePage() {
           
           <div className="testimonial-card">
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
-            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />  
+            <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />
             <img src="/file2.jpg" alt="Customer" className="testimonial-img" width="30" height="30" />

@@ -14,13 +14,13 @@ const About = () => {
       </div>
       
       <div className="imageGallery">
-        {/* Cooking/Prep photo on the bottom-left layer */}
+        {/* Cooking photo on the bottom-left layer */}
         <img 
           src="/marioandadrian.jpg" 
           alt="Little Lemon chefs prep work" 
           className="aboutImage imageBottom" 
         />
-        {/* Laughing/Standing photo on the top-right layer */}
+        {/* Laughing photo on the top-right layer */}
         <img 
           src="/marioandadrianb.jpg" 
           alt="Little Lemon owners laughing" 

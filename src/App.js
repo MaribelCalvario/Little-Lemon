@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="page-wrapper">
       <Nav />
-      <Main /> {/* Make sure <Header /> is NOT typed here anymore */}
+      <Main />
       <Footer />
     </div>
   );

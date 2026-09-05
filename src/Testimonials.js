@@ -2,15 +2,12 @@ import React from 'react';
 
 function Testimonials() {
   return (
-    // 1. Upgraded container to <section>
     <section className="testimonials-section" aria-labelledby="testimonials-title">
-      {/* 2. Fixed heading hierarchy to H2 */}
       <h2 id="testimonials-title">Testimonials</h2>
       <div className="testimonials-grid">
         
-        {/* Card 1: John Doe - Upgraded to <article> */}
+        {/* Card 1: John Doe */}
         <article className="testimonial-card">
-          {/* 3. Combined stars into one hidden container with an accessible visual label */}
           <div className="star-rating" aria-label="5 out of 5 stars">
             <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
             <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />  
@@ -19,7 +16,6 @@ function Testimonials() {
             <img src="/file2.jpg" alt="" aria-hidden="true" width="30" height="30" />
           </div>
           
-          {/* 4. Wrapped review text inside a semantic figure/blockquote box */}
           <figure className="testimonial-content">
             <blockquote>"Great food!"</blockquote>
             <div className="author-info">
