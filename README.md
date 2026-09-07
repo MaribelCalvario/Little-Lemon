@@ -12,13 +12,13 @@ Table Reservations:  A table reservation system has been put in place to manage 
 
 ## Installation
 Follow these steps to run application on your machine:
-1. **Clone the repository**
-git clone https://github.com
-2. **Navigate to the directory**
+1. **Clone the repository:**
+git clone https://github.com/MaribelCalvario/Little-Lemon
+2. **Navigate to the directory:**
 cd Little-Lemon
-3.  **Install dependencies**
+3.  **Install dependencies:**
 npm install
-4.  **Launch the local development server**
+4.  **Launch the local development server:**
 npm run start
 Open [http://localhost:3000](http://localhost:3000) to view the website in your browser.
 
@@ -29,8 +29,8 @@ To use this website, click on the options in the navigation bar.  There are five
 https://maribelcalvario.github.io/Little-Lemon/
 
 # Credits
-**React**
-**React Router DOM**
+**React** <br>
+**React Router DOM** <br>
 **CSS3**
 
 # License
