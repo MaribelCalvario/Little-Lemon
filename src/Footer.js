@@ -45,10 +45,11 @@ function Footer () {
             <nav className="footer-socials">
                 <h5>Social Media</h5>
                 <ul>
-                    <li><a href="/facebook">Facebook</a></li>
-                    <li><a href="/twitter">Twitter</a></li>
-                    <li><a href="/instagram">Instagram</a></li>
+                    <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 </ul>
+                
             </nav>
         </footer>
     );
