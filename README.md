@@ -19,7 +19,7 @@ cd Little-Lemon
 3.  **Install dependencies:**
 npm install
 4.  **Launch the local development server:**
-npm run start
+npm run start <br>
 Open [http://localhost:3000](http://localhost:3000) to view the website in your browser.
 
 ## Usage
