@@ -12,7 +12,7 @@ Table Reservations:  A table reservation system has been put in place to manage 
 
 ## Installation
 Follow these steps to run application on your machine:
-1. **Clone the repository*  
+1. **Clone the repository**
 git clone https://github.com
 2. **Navigate to the directory**
 cd Little-Lemon
