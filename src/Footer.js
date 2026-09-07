@@ -13,7 +13,7 @@ function Footer () {
     };
 
     return (
-        <footer className="container footer-section">
+        <footer className="footer-section">
             <div className="footer-logo">
                 <Link to="/" onClick={(e) => handleNavigationClick(e, '/')} aria-label="Little Lemon Logo">
                     <img src="logo.png" alt="Little Lemon Logo" width="200" height="250" />

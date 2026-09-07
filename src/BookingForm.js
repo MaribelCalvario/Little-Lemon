@@ -79,7 +79,7 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
                     <option value="Anniversary">Anniversary</option>
                 </select>
 
-                <button 
+                <button className="reserve-btn"
                     type="submit" 
                     aria-label="On Click"
                     disabled={!isFormValid()}
@@ -88,16 +88,18 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
                         opacity: isFormValid() ? 1 : 0.5
                     }}
                 >
-                    Make Your Reservation
+                    Reserve a Table
                 </button>
             </form>
 
             {bookingData.length > 0 && (
-                <div style={{ marginTop: '20px' }}>
-                    <h2>Current Bookings Queue</h2>
-                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', marginTop: '10px' }}>
+            <section className="bookings-section-wrapper" style={{ backgroundColor: '#495E57', padding: '20px'}}>
+            
+                <div className="container" style={{ marginTop: '20px' }}>
+                    <h2 style={{ color: 'white', fontFamily: 'Markazi Text', textAlign: 'center' }}>Current Bookings Queue</h2>
+                    <table className="bookings-queue-table"style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'center', marginTop: '10px', color: 'white'}}>
                         <thead>
-                            <tr style={{ borderBottom: '2px solid #333' }}>
+                            <tr style={{ borderBottom: '2px solid white' }}>
                                 <th style={{ padding: '8px' }}>Date</th>
                                 <th style={{ padding: '8px' }}>Time</th>
                                 <th style={{ padding: '8px' }}>Guests</th>
@@ -106,7 +108,7 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
                         </thead>
                         <tbody>
                             {bookingData.map((booking, index) => (
-                                <tr key={index} style={{ borderBottom: '1px solid #ccc' }}>
+                                <tr key={index} style={{ borderBottom: '1px solid white' }}>
                                     <td style={{ padding: '8px' }}>{booking.date}</td>
                                     <td style={{ padding: '8px' }}>{booking.time}</td>
                                     <td style={{ padding: '8px' }}>{booking.guests}</td>
@@ -116,8 +118,11 @@ function BookingForm({ availableTimes, dispatch, bookingData, submitForm }) {
                         </tbody>
                     </table>
                 </div>
+                </section>
             )}
-        </div>
+            
+            </div>
+            
     );
 }
 

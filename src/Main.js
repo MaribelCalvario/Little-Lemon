@@ -60,7 +60,7 @@ function Main() {
   };
 
   return (
-    <main className="container main-content">
+    <main className="main-content">
       <Routes>
         <Route path="/" element={<><Header /><Specials /><Testimonials /></>} />
         <Route path="/about" element={<About />} />

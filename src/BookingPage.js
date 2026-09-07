@@ -3,8 +3,9 @@ import BookingForm from './BookingForm';
 
 function BookingPage({ availableTimes, dispatch, bookingData, submitForm }) {
     return (
-        <div style={{ padding: '40px', maxWidth: '600px', margin: '0 auto' }}>
-            <h1>Reserve a Table at Little Lemon</h1>
+        <div style={{ padding: '40px 0px' }}>
+            <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <h1 style={{ color: '#F4CE14', fontFamily: 'Markazi Text' }}>Reserve a Table at Little Lemon</h1>
             <p>Please fill out the form below to secure your seating.</p>
 
             <BookingForm
@@ -15,7 +16,8 @@ function BookingPage({ availableTimes, dispatch, bookingData, submitForm }) {
                 className="booking-form"
             />
             
-            <p style={{ marginTop: '20px' }}>For parties larger than 10, please call our restaurant directly.</p>
+            <p style={{ marginTop: '20px' }}>   **For parties larger than 10, please call our restaurant directly at (123) 456-7890.</p>
+        </div>
         </div>
     );
 }
